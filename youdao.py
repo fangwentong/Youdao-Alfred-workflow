@@ -32,7 +32,7 @@ def translate(wf):
         error_code = res.get('errorCode', '')
         if error_code == 0:
             wf.add_item(
-                title    = res['translation'][0],
+                title    = res['translation'][0] + ('  [ ' + res['basic'].get('phonetic', '') + ' ]' if res.get('basic') else ''),
                 subtitle = res.get('query'),
                 copytext = res['translation'][0],
                 arg      = res['translation'][0],
